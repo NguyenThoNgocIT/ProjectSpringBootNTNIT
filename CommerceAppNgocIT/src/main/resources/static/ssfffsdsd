@@ -1,0 +1,10 @@
+INSERT INTO product (name, category, rating, review_count, current_price, original_price, promotion_label, image_path)
+VALUES
+    ('Haldiram\'s Sev Bhujia', 'Snack & Munchies', 4.3, 4, 21.6, 24, 'Sale 10%', '../images/product-img-1.jpg'),
+    ('NutriChoice Digestive', 'Bakery & Biscuits', 4.3, 4, 24, 24, NULL, '../images/product-img-2.jpg'),
+    ('Cadbury 5 Star Chocolate', 'Bakery & Biscuits', 4.3, 4, 35, 35, 'Buy 1 Get $4.00 Off', '../images/product-img-3.jpg'),
+    ('Onion Flavour Potato', 'Snack & Munchies', 4.3, 4, 3, 5, 'Hot 40%', '../images/product-img-4.jpg'),
+    ('Salted Instant Popcorn', 'Instant Food', 4.3, 4, 11.7, 18, '35%', '../images/product-img-5.jpg'),
+    ('Blueberry Greek Yogurt', 'Dairy, Bread & Eggs', 4.3, 4, 14.4, 24, '40%', '../images/product-img-6.jpg'),
+    ('Britannia Cheese Slices', 'Dairy, Bread & Eggs', 4.3, 4, 24, 24, NULL, '../images/product-img-7.jpg'),
+    ('Kellogg\'s Original Cereals', 'Instant Food', 4.3, 4, 29.75, 35, '15%', '../images/product-img-8.jpg');
