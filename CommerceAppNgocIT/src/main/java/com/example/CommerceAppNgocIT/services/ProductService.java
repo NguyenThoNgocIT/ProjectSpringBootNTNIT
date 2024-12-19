@@ -4,7 +4,12 @@ import com.example.CommerceAppNgocIT.models.ProductModel;
 
 import java.util.List;
 
-public class ProductService {
+//// CRUD product
+public interface ProductService {
+    List<ProductModel> getAll();
+    Boolean create(ProductModel product);
+    ProductModel findById(Integer id );
+    Boolean update(ProductModel product);
+    Boolean deleteById(Integer id);
 
-    }
-
+}

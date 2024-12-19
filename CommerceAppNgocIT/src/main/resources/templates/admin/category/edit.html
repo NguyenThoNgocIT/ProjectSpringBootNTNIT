@@ -37,8 +37,9 @@
                     <div class="box-header with-border">
                         <h3 class="box-title"> Quick Example</h3>
                     </div>
-<!--                    nó sẽ bắn từ bên product controller qua-->
-                    <form role="form" method="post" th:action="@{/admin/add-product}" th:object="${product}">
+                    <!--                    nó sẽ bắn từ bên product controller qua-->
+                    <form role="form" method="post" th:action="@{/admin/edit-product}" th:object="${product}">
+                        <input type="hidden" class="form-control" id="exampleInputs" th:field="*{productId}">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInput">
@@ -48,18 +49,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInput">Category Status</label>
-                                    <div class="form-check form-check-inline">
+                                <div class="form-check form-check-inline">
                                     <input type="radio" class="form-check-input"  th:field="*{productStatus}" value="1">
-                                    <label class="form-check-label" >available</label>
+                                    <label class="form-check-label" >Active</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" class="form-check-input"  th:field="*{productStatus}" value="0">
-                                    <label class="form-check-label" >not available</label>
+                                    <label class="form-check-label" >Hidden</label>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-success">Update</button>
                         </div>
                     </form>
                 </div>
