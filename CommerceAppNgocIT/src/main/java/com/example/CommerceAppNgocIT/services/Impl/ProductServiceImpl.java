@@ -57,4 +57,9 @@ public class ProductServiceImpl implements ProductService {
         }
 return false;
     }
+
+    @Override
+    public List<ProductModel> searchProduct(String keyword) {
+        return this.productRepository.searchProduct(keyword);
+    }
 }

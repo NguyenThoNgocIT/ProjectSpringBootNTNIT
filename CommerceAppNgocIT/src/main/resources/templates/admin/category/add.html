@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org" >
 <head th:replace="/admin/fragments/head :: head"></head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -38,27 +38,48 @@
                         <h3 class="box-title"> Quick Example</h3>
                     </div>
 <!--                    nó sẽ bắn từ bên product controller qua-->
-                    <form role="form" method="post" th:action="@{/admin/add-product}" th:object="${product}">
+                    <form role="form" method="post" th:action="@{/admin/add-category}" th:object="${category}" enctype="multipart/form-data">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInput">
                                     Product Name
                                 </label>
-                                <input type="text" class="form-control" id="exampleInput" th:field="*{productName}">
+                                <input type="text" class="form-control" id="exampleInput" th:field="*{categoryName}">
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInput">Category Status</label>
-                                    <div class="form-check form-check-inline">
-                                    <input type="radio" class="form-check-input"  th:field="*{productStatus}" value="1">
-                                    <label class="form-check-label" >available</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" class="form-check-input"  th:field="*{productStatus}" value="0">
-                                    <label class="form-check-label" >not available</label>
+                                <label for="exampleInput">
+                                    Price
+                                </label>
+                                <input type="text" class="form-control"  th:field="*{price}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInput">
+                                    Image Category
+                                </label>
+                                <input type="file" class="form-control" name="fileImage">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group" data-select2-id="13">
+                                    <label>Product</label>
+                                    <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" th:field="*{productModel.productId}" >
+<!--                                        ListCate ban tu controller sang -->
+                                        <option th:each="product : ${ListCate}"
+                                                th:value="${product.productId}"
+                                                th:text="${product.productName}">
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                            <!-- Description -->
+                            <div class="form-group" style="">
+                                <label for="editor1">Mô tả sản phẩm</label>
+                                <textarea name="editor1" id="editor1" rows="20" cols="90" th:field="*{description}"> This is ...</textarea>
+                            </div>
+<!--                        <div id="editor">This email sample content</div>-->
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
@@ -79,5 +100,12 @@
 <!-- jQuery 3 -->
 
 <div th:replace="/admin/fragments/script :: script"></div>
+<script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace("editor1");
+</script>
+
+
 </body>
+
 </html>

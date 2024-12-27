@@ -16,19 +16,6 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Blank page
-                <small>it all starts here</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li class="active">Blank page</li>
-            </ol>
-        </section>
-
         <!-- Main content -->
         <section class="content">
 
@@ -36,10 +23,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sach danh muc</h3>
-                        <div>
-                            <a href="/admin/add-product" class="btn btn-success" style="margin-bottom: 4px">Them danh muc</a>
-                        </div>
+                        <h3 class="card-title">Danh sach san pham</h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="table_search" class="form-control float-right" placeholder="Search" data-has-listeners="true">
@@ -58,24 +42,27 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Product Name</th>
-                                <th>Status</th>
+                                <th>CategoryName</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Product</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="products :${products}">
-                                <td th:text="${products.productId}"></td>
-                                <td th:text="${products.productName}"></td>
+                            <tr th:each="category :${listCategory}">
+                                <td th:text="${category.id}"></td>
+                                <td th:text="${category.categoryName}"></td>
+                                <td th:text="${category.price}"></td>
+                                <td >
+                                    <img th:src="@{'/uploads/'+${category.image}}" width="150px" alt="User Image">
+                                </td>
+                                <td th:text="${category.productModel.productName}"></td>
                                 <td>
-                                    <span th:if="${products.productStatus}" class="badge bg-green">Hien</span>
-                                    <span th:unless="${products.productStatus}" class="badge bg-red">An</span>
+                                    <a  class="btn btn-success"> Edit</a>
                                 </td>
                                 <td>
-                                    <a th:href="@{/admin/edit-product/{id}(id=${products.productId})}" class="btn btn-success"> Edit</a>
-                                </td>
-                                <td>
-                                    <a th:href="@{/admin/delete-product/{id}(id=${products.productId})}" onclick="return confirm('ỏ ỏ ỏ ỏ!!! Bạn đã chắc chắn chưa dẫy  ')" class="btn btn-" style="  background-color: red;
+                                    <a  onclick="return confirm('ỏ ỏ ỏ ỏ!!! Bạn đã chắc chắn chưa dẫy  ')" class="btn btn-" style="  background-color: red;
       color: white;"> Delete</a>
                                 </td>
                             </tr>

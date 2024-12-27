@@ -11,5 +11,6 @@ public interface ProductService {
     ProductModel findById(Integer id );
     Boolean update(ProductModel product);
     Boolean deleteById(Integer id);
+    List<ProductModel> searchProduct(String keyword);
 
 }
